@@ -2,5 +2,9 @@
 
 const store = {
 }
+const fileId = {}
 
-module.exports = store
+module.exports = {
+  store,
+  fileId
+}
