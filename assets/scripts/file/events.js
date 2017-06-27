@@ -11,8 +11,8 @@ const onIndexFolder = function () {
   // event.preventDefault()
   // const data = getFormFields(event.target)
   fileapi.folderIndex()
-    .then(fileui.indexFolderSuccess)
-    .catch(fileui.indexFolderFailure)
+    .then(fileui.folderIndexSuccess)
+    .catch(fileui.folderIndexFailure)
 }
 
 const onIndexFile = function (event) {

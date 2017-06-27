@@ -17,10 +17,13 @@ const reloadFileList = function () {
 }
 
 // folder index
+
 const folderIndexSuccess = (response) => {
-  $('.folder-list').empty()
+  console.log('folder index response is ', response)
+  // $('.folder-list').empty()
+  console.log('response files ', response.files)
   let showFoldersHtml = foldersTemplate({ files: response.files })
-  $('.folder-list').append(showfoldersHtml)
+  $('.folder-list').append(showFoldersHtml)
 }
 const folderIndexFailure = (error) => {
 }
