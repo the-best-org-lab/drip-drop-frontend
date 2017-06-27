@@ -148,7 +148,7 @@
               <h3 class="panel-title">Folders</h3>
             </div>
             <div class="col col-xs-6 text-right">
-              <button type="button" class="btn btn-sm btn-primary btn-create open-add-file" data-toggle="modal" data-target="#addFile">Add File</button>
+              <button type="button" class="btn btn-sm btn-primary btn-create open-add-file" data-toggle="modal" data-target=".add-file-modal">Add File</button>
             </div>
           </div>
         </div>
@@ -184,7 +184,7 @@
               <h3 class="panel-title">Files</h3>
             </div>
             <div class="col col-xs-6 text-right">
-              <button type="button" class="btn btn-sm btn-primary btn-create open-add-file" data-toggle="modal" data-target="#addFile">Add File</button>
+              <button type="button" class="btn btn-sm btn-primary btn-create open-add-file" data-toggle="modal" data-target=".add-file-modal">Add File</button>
             </div>
           </div>
         </div>
@@ -209,3 +209,101 @@
       </div>
 
 </div></div></div>
+
+<!-- Add File Modal-->
+
+    <!-- Modal -->
+      <div class="modal fade add-file-modal" role="dialog">
+        	  <div class="modal-dialog">
+    <!-- Modal Content-->
+            <div class="col-sm-2"></div>
+    				<div class="modal-content col-sm-8">
+
+                <form id="add-file" class="modal_form">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Add a File</h3>
+                  </div>
+
+                    <button type="button" class="btn btn-default create-new-folder">New Folder</button> <span>-OR-</span>
+
+                    <div class="form-group">
+                      <label for="folder-select">Select an existing folder:</label>
+                      <select class="form-control" name="[file][folder]" id="folder-select">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group new-folder">
+                      <label>Create a New Folder</label>
+                      <input type="text" name="[file][folder]" placeholder="File name" required="true" class="form-control name-add">
+                    </div>
+
+                    <div class="form-group">
+                      <label>File Name</label>
+                      <input type="text" name="[file][name]" placeholder="File name" required="true" class="form-control name-add">
+                    </div>
+
+                    <label class="btn btn-default">
+                      <input type="file" hidden>
+                    </label>
+
+                    <div class="radio">
+                      <label><input type="radio" name="optradio">Pending Review</label>
+                    </div>
+
+                    <div class="radio">
+                      <label><input type="radio" name="optradio">Complete</label>
+                    </div>
+
+                    <p class="errormsg"></p>
+                    <input type="submit" class="btn btn-default button" name="submit" value="Add File">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                </form>
+
+    				</div>
+            <div class="col-sm-2"></div>
+    			</div>
+    		  </div>
+
+<!-- Update File Modal-->
+
+    <!-- Modal -->
+      <div class="modal fade file-update-modal" role="dialog">
+        	  <div class="modal-dialog">
+    <!-- Modal Content-->
+            <div class="col-sm-2"></div>
+    				<div class="modal-content col-sm-8">
+
+                <form id="update-file" class="modal_form">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Update a File</h3>
+                  </div>
+
+                    <p class="modal-folder-name">Folder:</p>
+
+                    <p class="modal-file-name">File:</p>
+
+                    <div class="radio">
+                      <label><input type="radio" name="optradio">Pending Review</label>
+                    </div>
+
+                    <div class="radio">
+                      <label><input type="radio" name="optradio">Complete</label>
+                    </div>
+
+                    <p class="errormsg"></p>
+                    <input type="submit" class="btn btn-default button" name="submit" value="Add File">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                </form>
+
+    				</div>
+            <div class="col-sm-2"></div>
+    			</div>
+    		  </div>
