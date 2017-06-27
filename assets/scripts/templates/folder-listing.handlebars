@@ -1,7 +1,7 @@
 {{#each folders as |folder|}}
 <tr>
   <td class="col-xs-2" align="center" data-id="">
-    <a class="btn btn-default open-folder" data-type="{{file.folder}}"><em class="fa fa-folder-open-o"></em></a>
+    <a class="btn btn-default open-folder" data-type="{{file.folder}}"><em class="fa fa-folder-open-o " data-type="{{file.folder}}"></em></a>
   </td>
   {{#if file.folder}}
   <td class="col-xs-2" data-type="{{file.folder}}">{{file.folder}}</td>

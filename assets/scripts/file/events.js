@@ -48,6 +48,9 @@ const onDeleteFile = function (event) {
 }
 
 const addHandlers = () => {
+  $('#add-file').on('submit', onAddFile)
+  $('#delete-file').on('click', onDeleteFile)
+  $('#update-file').on('submit', onUpdateFile)
 }
 
 module.exports = {
