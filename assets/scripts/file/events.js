@@ -25,7 +25,7 @@ const onIndexFile = function (event) {
 
 const onAddFile = function (event) {
   event.preventDefault()
-  const data = getFormFields(event.target)
+  const data = FormData(event.target)
   fileapi.addFile(data)
     .then(fileui.addFileSuccess)
     .catch(fileui.addFileFailure)
@@ -48,6 +48,9 @@ const onDeleteFile = function (event) {
 }
 
 const addHandlers = () => {
+  $('#add-file').on('submit', onAddFile)
+  $('#delete-file').on('click', onDeleteFile)
+  $('#update-file').on('submit', onUpdateFile)
 }
 
 module.exports = {

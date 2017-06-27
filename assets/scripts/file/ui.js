@@ -7,7 +7,7 @@ const store = require('../store')
 const getFormFields = require(`../../../lib/get-form-fields`)
 
 // File UI events
-const showFoldersTemplate = require('../templates/folder-listing.handlebars')
+const foldersTemplate = require('../templates/folder-listing.handlebars')
 const showFilesTemplate = require('../templates/file-listing.handlebars')
 
 const reloadFileList = function () {
@@ -18,12 +18,18 @@ const reloadFileList = function () {
 
 // folder index
 const folderIndexSuccess = (response) => {
+  $('.folder-list').empty()
+  let showFoldersHtml = foldersTemplate({ files: response.files })
+  $('.folder-list').append(showfoldersHtml)
 }
 const folderIndexFailure = (error) => {
 }
 
 // file index
 const fileIndexSuccess = (response) => {
+  $('.file-list').empty()
+  let showFilesHtml = foldersTemplate({ files: response.files })
+  $('.file-list').append(showfoldersHtml)
 }
 const fileIndexFailure = (error) => {
 }
