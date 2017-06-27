@@ -21,7 +21,10 @@ const addFile = function (data) {
   console.log('data is ', data)
   return $.ajax({
     url: 'http://localhost:4741/files',
-    method: 'GET',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.token
+    },
     data,
     contentType: false,
     processData: false
@@ -34,7 +37,7 @@ const updateFile = function (data) {
     url: config.apiOrigin + '/files/' + store.fileId,
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.userToken
+      Authorization: 'Token token=' + store.token
     },
     data
   })
