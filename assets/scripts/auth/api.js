@@ -47,9 +47,58 @@ const signOut = function () {
   })
 }
 
+// FILE ACTIONS
+const fileIndex = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/files',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    }
+  })
+}
+
+const addFile = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/files',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    },
+    data
+  })
+}
+
+const updateFile = function (data) {
+  return $.ajax({
+  // fileID to be stored locally when update modal is launched
+    url: config.apiOrigin + '/files/' + store.fileId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    },
+    data
+  })
+}
+
+const deleteFile = function () {
+  return $.ajax({
+    // fileID to be stored locally when delete modal is launched
+    url: config.apiOrigin + '/files/' + store.fileId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.userToken
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  fileIndex,
+  addFile,
+  updateFile,
+  deleteFile
 }
