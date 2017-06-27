@@ -3,4 +3,9 @@
 const store = {
 }
 
-module.exports = store
+const fileId = {}
+
+module.exports = {
+  store,
+  fileId
+}
