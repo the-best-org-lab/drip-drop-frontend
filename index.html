@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Drip Drop Files</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -10,6 +10,7 @@
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     </head>
     <body class="container-fluid">
       <nav class="navbar navbar-default navbar-static-top">
@@ -28,16 +29,6 @@
           </div>
         </div>
       </div>
-
-      <h1>Example</h1>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
 
       <!-- Sign Up Modal -->
       <form id="sign-up-modal">
@@ -143,3 +134,78 @@
       </form>
     </body>
 </html>
+
+<!-- Folders table -->
+<div class="container folder-list-container">
+<div class="row">
+
+  <div class="col-md-10 col-md-offset-1">
+
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col col-xs-6">
+              <h3 class="panel-title">Folders</h3>
+            </div>
+            <div class="col col-xs-6 text-right">
+              <button type="button" class="btn btn-sm btn-primary btn-create open-add-file" data-toggle="modal" data-target="#addFile">Add File</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped table-bordered table-list">
+            <thead>
+              <tr>
+                  <th class="col-xs-2"><em class="fa fa-cog"></em></th>
+                  <th class="col-xs-2">Folder Name</th>
+
+              </tr>
+            </thead>
+            <tbody class="folder-list">
+                    <!-- Handlebars template paints folder list here... -->
+                  </tbody>
+          </table>
+
+        </div>
+      </div>
+
+</div></div></div>
+
+<!-- Files table -->
+<div class="container files-list-container">
+<div class="row">
+
+  <div class="col-md-10 col-md-offset-1">
+
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col col-xs-6">
+              <h3 class="panel-title">Files</h3>
+            </div>
+            <div class="col col-xs-6 text-right">
+              <button type="button" class="btn btn-sm btn-primary btn-create open-add-file" data-toggle="modal" data-target="#addFile">Add File</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped table-bordered table-list">
+            <thead>
+              <tr>
+                  <th class="col-xs-2"><em class="fa fa-cog"></em></th>
+                  <th class="col-xs-2">Name</th>
+                  <th class="col-xs-2">Created</th>
+                  <th class="col-xs-2">Updated</th>
+
+
+              </tr>
+            </thead>
+            <tbody class="file-list">
+                    <!-- Handlebars template paints file list here... -->
+                  </tbody>
+          </table>
+
+        </div>
+      </div>
+
+</div></div></div>
