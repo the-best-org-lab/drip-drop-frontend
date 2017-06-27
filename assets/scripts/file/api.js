@@ -6,10 +6,7 @@ const store = require('../store')
 const fileIndex = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/files',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.userToken
-    }
+    method: 'GET'
   })
 }
 
