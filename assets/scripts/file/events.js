@@ -25,7 +25,9 @@ const onIndexFile = function (event) {
 
 const onAddFile = function (event) {
   event.preventDefault()
+
   const data = FormData(event.target)
+
   fileapi.addFile(data)
     .then(fileui.addFileSuccess)
     .catch(fileui.addFileFailure)
