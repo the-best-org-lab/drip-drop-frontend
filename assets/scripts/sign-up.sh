@@ -10,8 +10,8 @@ curl "${API}${URL_PATH}" \
   --data '{
     "credentials": {
       "email": "'"${EMAIL}"'",
-      "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${CONFIRMPASSWORD}"'"
+      "password": "'"${PASSW}"'",
+      "password_confirmation": "'"${CONFIRMPASS}"'"
     }
   }'
 
@@ -19,4 +19,4 @@ echo
 
 
 # To run, enter the following at console (with new values for EMAIL and PASSWORD.)
-# EMAIL=heather@heatheradels.com PASSWORD=bunnymuffin CONFIRMPASSWORD=bunnymuffin scripts/sign-up.sh
+# EMAIL=heather@heatheradels.com PASSWORD=bunnymuffin scripts/sign-up.sh
