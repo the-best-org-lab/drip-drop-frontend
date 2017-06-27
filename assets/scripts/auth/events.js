@@ -11,6 +11,7 @@ const onSignUp = function (event) {
   // prefer event.target over 'this' NEVER use 'this'
   const data = getFormFields(event.target)
   // initiates an HTTP request that was defined in the api moddule as 'signup'
+  console.log('onSignUp')
   api.signUp(data)  // passing the credentials to the ajax call
     .then(ui.signUpSuccess)   // passing the credentials to the ajax call
     // can have multiple '.then' executed in order and passes its return to the next '.then'
@@ -23,6 +24,7 @@ const onSignIn = function (event) {
   // prefer event.target over 'this' NEVER use 'this'
   const data = getFormFields(event.target)
   // initiates an HTTP request that was defined in the api moddule as 'signup'
+  console.log('onSignIn')
   api.signIn(data)  // passing the credentials to the ajax call
     .then(ui.signInSuccess)   // passing the credentials to the ajax call
     // can have multiple '.then' executed in order and passes its return to the next '.then'
@@ -35,6 +37,7 @@ const onChangePassword = function (event) {
   // prefer event.target over 'this' NEVER use 'this'
   const data = getFormFields(event.target)
   // initiates an HTTP request that was defined in the api moddule as 'signup'
+  console.log('onChangePassword')
   api.changePassword(data)  // passing the credentials to the ajax call
     .then(ui.changePasswordSuccess)   // passing the credentials to the ajax call
     // can have multiple '.then' executed in order and passes its return to the next '.then'
@@ -54,10 +57,10 @@ const onSignOut = function (event) {
 
 const addHandlers = () => {
   // 'on' calls the callback function and passes the browser 'event' as the firsr arg
-  $('#sign-up').on('submit', onSignUp)
-  $('#sign-in').on('submit', onSignIn)
-  $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('submit', onSignOut)
+  $('#sign-up-modal').on('submit', onSignUp)
+  $('#sign-in-modal').on('submit', onSignIn)
+  $('#change-password-modal').on('submit', onChangePassword)
+  $('#sign-out-modal').on('submit', onSignOut)
 }
 
 module.exports = {
