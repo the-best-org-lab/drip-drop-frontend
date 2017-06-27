@@ -21,7 +21,7 @@ const addFile = function (data) {
   console.log('data is ', data)
   return $.ajax({
     url: 'http://localhost:4741/files',
-    method: 'GET',
+    method: 'POST',
     data,
     contentType: false,
     processData: false
