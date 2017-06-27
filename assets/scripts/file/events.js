@@ -1,16 +1,16 @@
 'use strict'
 
-const getFormFields = require(`../../lib/get-form-fields`)
+const getFormFields = require(`../../../lib/get-form-fields`)
 
 const fileapi = require('./api')
 const fileui = require('./ui')
-const store = require('./store')
+const store = require('../store')
 
 // File events
-const onIndexFolder = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  fileapi.indexFolder(data)
+const onIndexFolder = function () {
+  // event.preventDefault()
+  // const data = getFormFields(event.target)
+  fileapi.folderIndex()
     .then(fileui.indexFolderSuccess)
     .catch(fileui.indexFolderFailure)
 }
@@ -18,7 +18,7 @@ const onIndexFolder = function (event) {
 const onIndexFile = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  fileapi.indexFolder(data)
+  fileapi.fileIndex(data)
     .then(fileui.indexFileSuccess)
     .catch(fileui.indexFileFailure)
 }
