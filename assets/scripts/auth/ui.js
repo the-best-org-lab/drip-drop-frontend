@@ -2,6 +2,7 @@
 
 const signUpSuccess = (data) => {
   $('#sign-up-close').click()
+  $('#sign-up-modal').trigger('reset')
 }
 
 const signUpFailure = (error) => {
@@ -10,6 +11,7 @@ const signUpFailure = (error) => {
   $('div#statusBar').text('Sign Up failed. Status returned by the server: ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
+  $('#sign-up-modal').trigger('reset')
 }
 
 const signInSuccess = (data) => {
@@ -18,6 +20,7 @@ const signInSuccess = (data) => {
   $('#sign-out-btn').prop('disabled', false)
   $('#sign-up-btn').prop('disabled', true)
   $('#sign-in-btn').prop('disabled', true)
+  $('#sign-in-modal').trigger('reset')
 }
 
 const signInFailure = (error) => {
@@ -26,13 +29,15 @@ const signInFailure = (error) => {
   $('div#statusBar').text('Sign In failed. Status returned by the server: ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
+  $('#sign-in-modal').trigger('reset')
 }
 
 const changePasswordSuccess = (data) => {
   $('#change-password-close').click() // close change password modal dlg
-  $('div#statusBar').text = 'Your password was successfully changed.'
+  $('div#statusBar').text('Your password was successfully changed.')
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
+  $('#change-password-modal').trigger('reset')
 }
 
 const changePasswordFailure = (error) => {
@@ -40,6 +45,7 @@ const changePasswordFailure = (error) => {
   $('div#statusBar').text('Change Password failed. Status returned by the server: ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
+  $('#change-password-modal').trigger('reset')
 }
 
 const signOutSuccess = () => {
@@ -48,6 +54,7 @@ const signOutSuccess = () => {
   $('#sign-out-btn').prop('disabled', true)
   $('#sign-up-btn').prop('disabled', false)
   $('#sign-in-btn').prop('disabled', false)
+  $('#sign-out-modal').trigger('reset')
 }
 
 const signOutFailure = (error) => {
@@ -55,6 +62,7 @@ const signOutFailure = (error) => {
   $('div#statusBar').text('Sign Out failed. Status returned by the server: ' + error.status + ' ' + error.statusText)
   $('div#statusBar').show(3000)
   $('div#statusBar').hide(5000)
+  $('#sign-out-modal').trigger('reset')
 }
 
 module.exports = {
