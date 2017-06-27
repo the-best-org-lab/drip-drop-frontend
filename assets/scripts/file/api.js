@@ -18,13 +18,13 @@ const fileIndex = function (data) {
 }
 
 const addFile = function (data) {
+  console.log('data is ', data)
   return $.ajax({
-    url: config.apiOrigin + '/files',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.userToken
-    },
-    data
+    url: 'http://localhost:4741/files',
+    method: 'GET',
+    data,
+    contentType: false,
+    processData: false
   })
 }
 
