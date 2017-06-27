@@ -3,6 +3,13 @@ const config = require('../config')
 const store = require('../store')
 
 // FILE ACTIONS
+const folderIndex = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/files',
+    method: 'GET'
+  })
+}
+
 const fileIndex = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/files',
@@ -46,6 +53,7 @@ const deleteFile = function () {
 
 module.exports = {
   fileIndex,
+  folderIndex,
   addFile,
   updateFile,
   deleteFile
