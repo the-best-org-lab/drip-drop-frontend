@@ -26,13 +26,16 @@ const onIndexFile = function () {
 const onAddFile = function (event) {
   event.preventDefault()
   const data = new FormData(event.target)
+  for (let pair of data.entries()) {
+    console.log(pair[0] + ', ' + pair[1])
+  }
   fileApi.addFile(data)
     .then(fileUi.addFileSuccess)
     .catch(fileUi.addFileFailure)
-
 }
+
 const storeTag = function (event) {
-  if ($('#addTagUpdate').val('') === 'Pending Review') {
+  if ($('#addTagUpdate').val() === 'Pending Review') {
     store.pendingReview = true
   } else if ($('#addTagUpdate').val('') === 'Complete') {
     store.complete = true
@@ -40,12 +43,11 @@ const storeTag = function (event) {
     store.pendingReview = {}
     store.complete = {}
   }
-
 }
 
 const onUpdateFile = function (event) {
   console.log(event)
-  console.log($('#addTagUpdate').val(''))
+  console.log($('#addTagUpdate').val())
   storeTag(event)
   console.log('store pending ', store.pendingReview)
   console.log('store complete ', store.complete)

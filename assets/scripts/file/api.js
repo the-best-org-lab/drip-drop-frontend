@@ -18,7 +18,6 @@ const fileIndex = function (data) {
 }
 
 const addFile = function (data) {
-  console.log('data is ', data)
   return $.ajax({
     url: 'http://localhost:4741/files',
     method: 'POST',
@@ -39,7 +38,9 @@ const updateFile = function (data) {
     headers: {
       Authorization: 'Token token=' + store.token
     },
-    data
+    data: `'{
+      'pendingReview': ${store.pendingReview},
+      'complete': ${store.complete} }'`
   })
 }
 
