@@ -40,7 +40,8 @@ const folderIndexFailure = (error) => {
 const openFolder = function () {
   store.folder = $(event.target).data('type')
   console.log('store folder is ', store.folder)
-  $('.folder-list-container').addClass('hidden')
+  $('.folder-list-container').toggle('display')
+  $('.files-list-container').toggle('display')
   fileApi.fileIndex()
     .then(fileIndexSuccess)
     .catch(fileIndexFailure)
@@ -50,6 +51,11 @@ const filterByFolder = function (files) {
   return files.filter(function (file) {
     return file.folder === store.folder
   })
+}
+
+const openFolderTable = function () {
+  $('.folder-list-container').toggle('display')
+  $('.files-list-container').toggle('display')
 }
 
 const fileIndexSuccess = (response) => {
@@ -94,5 +100,6 @@ module.exports = {
   updateFileSuccess,
   updateFileFailure,
   deleteFileSuccess,
-  deleteFileFailure
+  deleteFileFailure,
+  openFolderTable
 }

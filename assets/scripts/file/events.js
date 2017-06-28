@@ -51,6 +51,7 @@ const addHandlers = () => {
   $('#add-file').on('submit', onAddFile)
   $('#delete-file').on('click', onDeleteFile)
   $('#update-file').on('submit', onUpdateFile)
+  $('.open-folder-table').on('click', fileUi.openFolderTable)
 }
 
 module.exports = {
