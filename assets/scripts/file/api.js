@@ -49,7 +49,7 @@ const deleteFile = function () {
     url: config.apiOrigin + '/files/' + store.fileId,
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + store.userToken
+      Authorization: 'Token token=' + store.token
     }
   })
 }

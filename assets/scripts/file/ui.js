@@ -58,6 +58,10 @@ const openFolderTable = function () {
   $('.files-list-container').toggle('display')
 }
 
+const openEditModal = function (event) {
+  store.fileName = $(event.target).parent().data('type')
+}
+
 const fileIndexSuccess = (response) => {
   $('.file-list').empty()
   console.log('response.files is ', response.files)
@@ -67,6 +71,7 @@ const fileIndexSuccess = (response) => {
   $('.file-list').append(showFilesHtml)
   // $('.open-file-open').on('click', openFile)
   // $('.open-file-download').on('click', downloadFile)
+  $('.open-file-edit').on('click', openEditModal)
 }
 
 const fileIndexFailure = (error) => {
