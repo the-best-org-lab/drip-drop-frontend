@@ -58,7 +58,6 @@ const openFolderTable = function () {
   $('.files-list-container').toggle('display')
 }
 
-
 const openAddModal = function (event) {
   console.log('open add folder ', store.folder)
   $('.folder-add').val(store.folder)
@@ -88,6 +87,7 @@ const fileIndexSuccess = (response) => {
   $('.open-file-edit').on('click', openEditModal)
   $('.open-file-delete').on('click', openDeleteModal)
   $('.open-add-file').on('click', openAddModal)
+  $('.files-table-title').text(store.folder)
 
 }
 
