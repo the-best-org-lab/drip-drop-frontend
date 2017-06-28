@@ -29,6 +29,7 @@ const onAddFile = function (event) {
   fileApi.addFile(data)
     .then(fileUi.addFileSuccess)
     .catch(fileUi.addFileFailure)
+
 }
 const storeTag = function (event) {
   if ($('#addTagUpdate').val('') === 'Pending Review') {
@@ -39,6 +40,7 @@ const storeTag = function (event) {
     store.pendingReview = {}
     store.complete = {}
   }
+
 }
 
 const onUpdateFile = function (event) {
@@ -72,6 +74,7 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   onIndexFolder,
+
   onIndexFile,
   storeTag
 }
