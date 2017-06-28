@@ -58,8 +58,22 @@ const openFolderTable = function () {
   $('.files-list-container').toggle('display')
 }
 
+
+const openAddModal = function (event) {
+  console.log('open add folder ', store.folder)
+  $('.folder-add').val(store.folder)
+}
+
 const openEditModal = function (event) {
   store.fileName = $(event.target).parent().data('type')
+  store.fileId = $(event.target).parent().data('id')
+  console.log($(event.target).parent())
+  console.log('fileName is ', store.fileName)
+  console.log('folder name is ', store.folder)
+  console.log('file id is ', store.fileId)
+  $('.modal-folder-name').text(`Folder: ${store.folder}`)
+  $('.modal-file-name').text(`File: ${store.fileName}`)
+
 }
 
 const fileIndexSuccess = (response) => {
@@ -72,6 +86,9 @@ const fileIndexSuccess = (response) => {
   // $('.open-file-open').on('click', openFile)
   // $('.open-file-download').on('click', downloadFile)
   $('.open-file-edit').on('click', openEditModal)
+  $('.open-file-delete').on('click', openDeleteModal)
+  $('.open-add-file').on('click', openAddModal)
+
 }
 
 const fileIndexFailure = (error) => {
@@ -90,6 +107,12 @@ const updateFileFailure = (error) => {
 }
 
 // delete file
+const openDeleteModal = function (event) {
+  console.log($(event.target).parent())
+  store.fileId = $(event.target).parent().data('id')
+  console.log('delete store fileid ', store.fileId)
+}
+
 const deleteFileSuccess = (response) => {
 }
 const deleteFileFailure = (error) => {
