@@ -2,49 +2,49 @@
 
 const getFormFields = require(`../../../lib/get-form-fields`)
 
-const fileapi = require('./api')
-const fileui = require('./ui')
+const fileApi = require('./api')
+const fileUi = require('./ui')
 const store = require('../store')
 
 // File events
 const onIndexFolder = function () {
   // event.preventDefault()
   // const data = getFormFields(event.target)
-  fileapi.folderIndex()
-    .then(fileui.folderIndexSuccess)
-    .catch(fileui.folderIndexFailure)
+  fileApi.folderIndex()
+    .then(fileUi.folderIndexSuccess)
+    .catch(fileUi.folderIndexFailure)
 }
 
-const onIndexFile = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  fileapi.fileIndex(data)
-    .then(fileui.indexFileSuccess)
-    .catch(fileui.indexFileFailure)
+const onIndexFile = function () {
+  // event.preventDefault()
+  // const data = getFormFields(event.target)
+  fileApi.fileIndex()
+    .then(fileUi.indexFileSuccess)
+    .catch(fileUi.indexFileFailure)
 }
 
 const onAddFile = function (event) {
   event.preventDefault()
   const data = new FormData(event.target)
-  fileapi.addFile(data)
-    .then(fileui.addFileSuccess)
-    .catch(fileui.addFileFailure)
+  fileApi.addFile(data)
+    .then(fileUi.addFileSuccess)
+    .catch(fileUi.addFileFailure)
 }
 
 const onUpdateFile = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  fileapi.updateFile(data)
-    .then(fileui.updateFileSuccess)
-    .catch(fileui.updateFileFailure)
+  fileApi.updateFile(data)
+    .then(fileUi.updateFileSuccess)
+    .catch(fileUi.updateFileFailure)
 }
 
 const onDeleteFile = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  fileapi.deleteFile(data)
-    .then(fileui.deleteFileSuccess)
-    .catch(fileui.deleteFileFailure)
+  fileApi.deleteFile(data)
+    .then(fileUi.deleteFileSuccess)
+    .catch(fileUi.deleteFileFailure)
 }
 
 const addHandlers = () => {
@@ -55,5 +55,6 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onIndexFolder
+  onIndexFolder,
+  onIndexFile
 }
