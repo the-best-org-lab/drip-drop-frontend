@@ -1,39 +1,68 @@
 'use strict'
 
 // Requires
-const fileapi = require('./api')
-const fileevents = require('./events')
+const fileApi = require('./api')
+const fileEvents = require('./events')
 const store = require('../store')
 const getFormFields = require(`../../../lib/get-form-fields`)
+const _ = require('lodash')
 
 // File UI events
 const foldersTemplate = require('../templates/folder-listing.handlebars')
-const showFilesTemplate = require('../templates/file-listing.handlebars')
+const filesTemplate = require('../templates/file-listing.handlebars')
 
 const reloadFileList = function () {
-  fileapi.fileIndex()
+  fileApi.fileIndex()
     .then(fileIndexSuccess)
     .catch(fileIndexFailure)
 }
 
 // folder index
 
-const folderIndexSuccess = (response) => {
-  console.log('folder index response is ', response)
-  // $('.folder-list').empty()
-  console.log('response files ', response.files)
-  let showFoldersHtml = foldersTemplate({ files: response.files })
-  $('.folder-list').append(showFoldersHtml)
+const filterByName = function (files) {
+  let f = []
+  return files.filter(function (file) {
+    return f.indexOf(file.folder) === -1 && f.push(file.folder)
+  })
 }
+
+const folderIndexSuccess = (response) => {
+  // $('.folder-list').empty()
+  const data = filterByName(response.files)
+  let showFoldersHtml = foldersTemplate({ files: data })
+  $('.folder-list').append(showFoldersHtml)
+  $('.open-folder').on('click', openFolder)
+}
+
 const folderIndexFailure = (error) => {
 }
 
+const openFolder = function () {
+  store.folder = $(event.target).data('type')
+  console.log('store folder is ', store.folder)
+  $('.folder-list-container').addClass('hidden')
+  fileApi.fileIndex()
+    .then(fileIndexSuccess)
+    .catch(fileIndexFailure)
+}
 // file index
+const filterByFolder = function (files) {
+  return files.filter(function (file) {
+    return file.folder === store.folder
+  })
+}
+
 const fileIndexSuccess = (response) => {
   $('.file-list').empty()
-  let showFilesHtml = foldersTemplate({ files: response.files })
-  $('.file-list').append(showfoldersHtml)
+  console.log('response.files is ', response.files)
+  const data = filterByFolder(response.files)
+  console.log('filtered is ', data)
+  let showFilesHtml = filesTemplate({ files: data })
+  $('.file-list').append(showFilesHtml)
+  // $('.open-file-open').on('click', openFile)
+  // $('.open-file-download').on('click', downloadFile)
 }
+
 const fileIndexFailure = (error) => {
 }
 
