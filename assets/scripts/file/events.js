@@ -30,8 +30,23 @@ const onAddFile = function (event) {
     .then(fileUi.addFileSuccess)
     .catch(fileUi.addFileFailure)
 }
+const storeTag = function (event) {
+  if ($('#addTagUpdate').val('') === 'Pending Review') {
+    store.pendingReview = true
+  } else if ($('#addTagUpdate').val('') === 'Complete') {
+    store.complete = true
+  } else {
+    store.pendingReview = {}
+    store.complete = {}
+  }
+}
 
 const onUpdateFile = function (event) {
+  console.log(event)
+  console.log($('#addTagUpdate').val(''))
+  storeTag(event)
+  console.log('store pending ', store.pendingReview)
+  console.log('store complete ', store.complete)
   event.preventDefault()
   const data = getFormFields(event.target)
   fileApi.updateFile(data)
@@ -57,5 +72,6 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   onIndexFolder,
-  onIndexFile
+  onIndexFile,
+  storeTag
 }
