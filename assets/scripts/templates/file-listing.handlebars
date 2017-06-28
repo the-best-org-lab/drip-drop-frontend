@@ -1,10 +1,21 @@
 {{#each files as |file|}}
 <tr>
   <td class="col-xs-2" align="center" data-id="">
-    <a class="btn btn-default open-file-download" data-id="{{file.id}}"><em class="fa fa-download"></em></a>
-    <a class="btn btn-default open-file-open" data-id="{{file.id}}"><em class="fa fa-external-link"></em></a>
-    <a class="btn btn-default open-file-edit" data-id="{{file.id}}" data-toggle="modal" data-target=".file-update-modal"><em class="fa fa-pencil"></em></a>
-    <a class="btn btn-danger open-file-delete" data-id="{{file.id}}" data-toggle="modal" data-target=".file-delete-modal"><em class="fa fa-trash"></em></a>
+    <a class="btn btn-default open-file-download" data-id="{{file.id}}">
+      <em class="fa fa-download"></em>
+    </a>
+
+    <a class="btn btn-default open-file-open" data-id="{{file.id}}">
+      <em class="fa fa-external-link"></em>
+    </a>
+
+    <a class="btn btn-default open-file-edit" data-id="{{file.id}}" data-toggle="modal" data-target=".file-update-modal" data-type="{{file.name}}">
+      <em class="fa fa-pencil"></em>
+    </a>
+
+    <a class="btn btn-danger open-file-delete" data-id="{{file.id}}" data-toggle="modal" data-target=".file-delete-modal">
+      <em class="fa fa-trash"></em>
+    </a>
   </td>
   <td class="col-xs-2" data-type="{{file.name}}" data-id="{{file.id}}">{{file.name}}</td>
   <td class="col-xs-2" data-type="{{file.timestamps.createdAt}}">{{file.timestamps.createdAt}}</td>
