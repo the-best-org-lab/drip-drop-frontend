@@ -27,7 +27,7 @@ const onAddFile = function (event) {
   event.preventDefault()
   const data = new FormData(event.target)
   for (let pair of data.entries()) {
-    console.log(pair[0] + ', ' + pair[1])
+    console.log(pair[0], pair[1])
   }
   fileApi.addFile(data)
     .then(fileUi.addFileSuccess)
