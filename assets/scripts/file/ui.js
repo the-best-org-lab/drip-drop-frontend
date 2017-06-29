@@ -46,6 +46,7 @@ const openFolder = function () {
     .then(fileIndexSuccess)
     .catch(fileIndexFailure)
 }
+
 // file index
 const filterByFolder = function (files) {
   return files.filter(function (file) {
@@ -72,7 +73,6 @@ const openEditModal = function (event) {
   console.log('file id is ', store.fileId)
   $('.modal-folder-name').text(`Folder: ${store.folder}`)
   $('.modal-file-name').text(`File: ${store.fileName}`)
-
 }
 
 const fileIndexSuccess = (response) => {
@@ -88,7 +88,6 @@ const fileIndexSuccess = (response) => {
   $('.open-file-delete').on('click', openDeleteModal)
   $('.open-add-file').on('click', openAddModal)
   $('.files-table-title').text(store.folder)
-
 }
 
 const fileIndexFailure = (error) => {
