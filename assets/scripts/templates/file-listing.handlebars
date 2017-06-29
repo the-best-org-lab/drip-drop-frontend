@@ -24,15 +24,10 @@
   <td class="col-xs-2" data-type="{{file.createdAt}}">{{file.createdAt}}</td>
   <td class="col-xs-2" data-type="{{file.updatedAt}}">{{file.updatedAt}}</td>
   {{#if file.pendingReview}}
-    <td class="col-xs-2" data-type="{{file.pendingReview}}">{{file.pendingReview}}</td>
+    <td class="col-xs-2" data-type="{{file.tag}}">{{file.tag}}</td>
   {{else}}
     <td></td>
   {{/if}}
 
-  {{#if file.complete}}
-    <td class="col-xs-2" data-type="{{file.complete}}">{{file.complete}}</td>
-  {{else}}
-    <td></td>
-  {{/if}}
 </tr>
 {{/each}}

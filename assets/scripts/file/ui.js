@@ -108,6 +108,7 @@ const openDeleteModal = function (event) {
 
 const deleteFileSuccess = (response) => {
   $('.file-delete-modal').modal('toggle')
+  reloadFileList()
 }
 const deleteFileFailure = (error) => {
 }
