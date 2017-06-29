@@ -27,32 +27,17 @@ const onAddFile = function (event) {
   event.preventDefault()
   const data = new FormData(event.target)
   for (let pair of data.entries()) {
-    console.log(pair[0], pair[1])
+    console.log(pair[0], pair[1], pair[2])
   }
   fileApi.addFile(data)
     .then(fileUi.addFileSuccess)
     .catch(fileUi.addFileFailure)
 }
 
-const storeTag = function (event) {
-  if ($('#addTagUpdate').val() === 'Pending Review') {
-    store.pendingReview = true
-  } else if ($('#addTagUpdate').val('') === 'Complete') {
-    store.complete = true
-  } else {
-    store.pendingReview = {}
-    store.complete = {}
-  }
-}
-
 const onUpdateFile = function (event) {
-  console.log(event)
-  console.log($('#addTagUpdate').val())
-  storeTag(event)
-  console.log('store pending ', store.pendingReview)
-  console.log('store complete ', store.complete)
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log('update file data is ', data)
   fileApi.updateFile(data)
     .then(fileUi.updateFileSuccess)
     .catch(fileUi.updateFileFailure)
@@ -76,7 +61,5 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   onIndexFolder,
-
-  onIndexFile,
-  storeTag
+  onIndexFile
 }
