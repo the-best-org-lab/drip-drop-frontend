@@ -21,6 +21,7 @@ const signInSuccess = (data) => {
   $('#sign-up-btn').prop('disabled', true)
   $('#sign-in-btn').prop('disabled', true)
   $('#sign-in-modal').trigger('reset')
+  $('.folder-list-container').toggle('display')
 }
 
 const signInFailure = (error) => {
@@ -55,6 +56,8 @@ const signOutSuccess = () => {
   $('#sign-up-btn').prop('disabled', false)
   $('#sign-in-btn').prop('disabled', false)
   $('#sign-out-modal').trigger('reset')
+  $('.folder-list-container').hide()
+  $('.files-list-container').hide()
 }
 
 const signOutFailure = (error) => {
