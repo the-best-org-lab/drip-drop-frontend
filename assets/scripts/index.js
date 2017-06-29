@@ -9,7 +9,7 @@ $(() => {
   setAPIOrigin(location, config)
   authEvents.addHandlers()
   fileEvents.addHandlers()
-  fileEvents.onIndexFolder()
+  // fileEvents.onIndexFolder()
 })
 
 // use require with a reference to bundle the file and use it in this file

@@ -1,5 +1,7 @@
 'use strict'
 
+const fileEvents = require('../file/events.js')
+
 const signUpSuccess = (data) => {
   $('#sign-up-close').click()
   $('#sign-up-modal').trigger('reset')
@@ -21,6 +23,7 @@ const signInSuccess = (data) => {
   $('#sign-up-btn').prop('disabled', true)
   $('#sign-in-btn').prop('disabled', true)
   $('#sign-in-modal').trigger('reset')
+  fileEvents.onIndexFolder()
   $('.folder-list-container').toggle('display')
 }
 
@@ -58,6 +61,8 @@ const signOutSuccess = () => {
   $('#sign-out-modal').trigger('reset')
   $('.folder-list-container').hide()
   $('.files-list-container').hide()
+  $('.file-list').empty()
+  $('.folder-list').empty()
 }
 
 const signOutFailure = (error) => {
