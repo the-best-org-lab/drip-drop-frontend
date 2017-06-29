@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Drip Drop Files</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -10,16 +10,324 @@
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="button-group">
+          <button type="button" id="sign-up-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#signUp" name="sign-me-up">Sign Up</button>
+          <button type="button" id="sign-in-btn" class="btn btn-default btn-lg ttt-nav-btns" data-toggle="modal" data-target="#signIn" name="sign-me-in">Sign In</button>
+          <button type="button" id="change-password-btn" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#changePassword" name="change-my-password">Change Password</button>
+          <button type="button" id="sign-out-btn" class="btn btn-default btn-lg ttt-nav-btns" disabled="true" data-toggle="modal" data-target="#signOut" name="sign-me-out">Sign Out</button>
+        </div>
+      </nav>
+      <div  class="panel panel-default">
+        <div hidden="true "id="statusBar" class="panel-body">
+          <div  class="col-sm-12">
+            <p id="msg" >
+            </p>
+          </div>
+        </div>
+      </div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
+      <!-- Sign Up Modal -->
+      <form id="sign-up-modal">
+        <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="Sign Up!">
+          <div class="modal-dialog auth-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" id="sign-up-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Sign Up</h4>
+              </div>
+              <div class="modal-body">
+                <fieldset>
+                  <label>Email
+                  <input type="text" name="[credentials][email]" value="">
+                  </label>
+                  <label>Password
+                  <input type="password" name="[credentials][password]" value="">
+                </label>
+                  <label>Password Confirmation
+                  <input type="password" name="[credentials][password_confirmation]" value="">
+                </label>
+                </fieldset>
+              </div>
+              <div class="modal-footer">
+                <input type="submit" name="submit" value="Sign Up!">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Sign In Modal -->
+      <form id="sign-in-modal">
+        <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="Sign In!">
+          <div class="modal-dialog auth-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" id="sign-in-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Sign In</h4>
+              </div>
+              <div class="modal-body">
+                <fieldset>
+                  <label>Email
+                  <input type="text" name="[credentials][email]" value="">
+                  </label>
+                  <label>Password
+                  <input type="password" name="[credentials][password]" value="">
+                </label>
+                </fieldset>
+              </div>
+              <div class="modal-footer">
+                <input type="submit" name="submit" value="Sign In!">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Change Password Modal -->
+      <form id="change-password-modal">
+        <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="Change Password">
+          <div class="auth-dialog modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" id="change-password-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Change Password</h4>
+              </div>
+              <div class="modal-body">
+                <fieldset>
+                  <label>Old Password
+                    <input type="password" name="[passwords][old]" value="">
+                    </label>
+                  <label>New Password
+                    <input type="password" name="[passwords][new]" value="">
+                  </label>
+                </fieldset>
+              </div>
+              <div class="modal-footer">
+                <input type="submit" name="submit" value="Change Password!">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Sign Out Modal -->
+      <form id="sign-out-modal">
+        <div class="modal fade" id="signOut" tabindex="-1" role="dialog" aria-labelledby="Sign Out">
+          <div class="auth-dialog modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" id="sign-out-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Sign Out</h4>
+              </div>
+              <div class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <input type="submit" name="submit" value="Sign Out!">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+<!-- Folders table -->
+<div class="container folder-list-container">
+<div class="row">
+
+  <div class="col-md-10 col-md-offset-1">
+
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col col-xs-6">
+              <h3 class="panel-title">Folders</h3>
+            </div>
+            <div class="col col-xs-6 text-right">
+
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped table-bordered table-list">
+            <thead>
+              <tr>
+                  <th class="col-xs-2"><em class="fa fa-cog"></em></th>
+                  <th class="col-xs-2">Folder Name</th>
+
+              </tr>
+            </thead>
+            <tbody class="folder-list">
+
+                  </tbody>
+          </table>
+
+        </div>
+      </div>
+
+</div></div></div>
+
+<!-- Files table -->
+<div class="container files-list-container">
+<div class="row">
+
+  <div class="col-md-10 col-md-offset-1">
+
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col col-xs-6">
+              <h3 class="panel-title files-table-title">Files</h3>
+            </div>
+            <div class="col col-xs-6 text-right">
+              <button type="button" class="btn btn-sm btn-primary btn-create open-folder-table">Folders</button>
+              <button type="button" class="btn btn-sm btn-primary btn-create open-add-file" data-toggle="modal" data-target=".add-file-modal">Add File</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped table-bordered table-list">
+            <thead>
+              <tr>
+                  <th class="col-xs-2"><em class="fa fa-cog"></em></th>
+                  <th class="col-xs-2">Name</th>
+                  <th class="col-xs-2">Created</th>
+                  <th class="col-xs-2">Updated</th>
+                  <th class="col-xs-2">Pending</th>
+                  <th class="col-xs-2">Complete</th>
+
+
+              </tr>
+            </thead>
+            <tbody class="file-list">
+                    <!-- Handlebars template paints file list here... -->
+                  </tbody>
+          </table>
+
+        </div>
+      </div>
+
+</div></div></div>
+
+<!-- Add File Modal-->
+
+    <!-- Modal -->
+      <div class="modal fade add-file-modal" role="dialog">
+        	  <div class="modal-dialog">
+    <!-- Modal Content-->
+            <div class="col-sm-2"></div>
+    				<div class="modal-content col-sm-8">
+
+                <form id="add-file" class="modal_form">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Add a File</h3>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Folder</label>
+                    <input type="text" name="file[folder]" placeholder="File name" class="form-control folder-add">
+                  </div>
+
+
+                    <div class="form-group">
+                      <label>File Name</label>
+                      <input type="text" name="file[name]" placeholder="File name" required="true" class="form-control name-add">
+                    </div>
+
+                    <label class="btn btn-default">
+
+                      <input type="file" name="file[file]">
+                    </label>
+
+                    <div class="form-group">
+                      <label for="addTagNew">Add a Tag:</label>
+                      <select class="form-control" id="addTagNew">
+
+                        <option>New</option>
+                        <option>Pending Review</option>
+                        <option>Complete</option>
+
+                      </select>
+                    </div>
+
+                    <p class="errormsg"></p>
+                    <input type="submit" class="btn btn-default button" name="submit" value="Add File">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                </form>
+
+    				</div>
+            <div class="col-sm-2"></div>
+    			</div>
+    		  </div>
+
+<!-- Update File Modal-->
+
+    <!-- Modal -->
+      <div class="modal fade file-update-modal" role="dialog">
+        	  <div class="modal-dialog">
+    <!-- Modal Content-->
+            <div class="col-sm-2"></div>
+    				<div class="modal-content col-sm-8">
+
+                <form id="update-file" class="modal_form">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Update a File</h3>
+                  </div>
+
+                    <p class="modal-folder-name">Folder:</p>
+
+                    <p class="modal-file-name">File:</p>
+
+                    <div class="form-group">
+                      <label for="addTagUpdate">Add a Tag:</label>
+                      <select class="form-control" id="addTagUpdate">
+
+                        <option>New</option>
+                        <option>Pending Review</option>
+                        <option>Complete</option>
+
+                      </select>
+                    </div>
+
+                    <p class="errormsg"></p>
+                    <input type="submit" class="btn btn-default button" name="submit" value="Update File">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                </form>
+
+    				</div>
+            <div class="col-sm-2"></div>
+    			</div>
+    		  </div>
+
+<!-- Delete File Modal-->
+        <!-- Modal -->
+          <div class="modal fade file-delete-modal" role="dialog">
+                <div class="modal-dialog">
+        <!-- Modal Content-->
+                <div class="col-sm-2"></div>
+                <div class="modal-content col-sm-8">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">Delete a File</h3>
+                  </div>
+
+                  <div class="form-group confirmDeleteMsg">
+                    <p></p>
+                    <p>Are you sure you want to delete this file?</p>
+                  </div>
+                  <p class="errormsg"></p>
+                  <button id="delete-file" type="button" class="btn btn-default button">Delete File</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                </div>
+                <div class="col-sm-2"></div>
+              </div>
+          </div>
+  </body>
 </html>
