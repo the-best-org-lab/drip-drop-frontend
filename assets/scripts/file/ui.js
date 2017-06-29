@@ -96,12 +96,14 @@ const fileIndexFailure = (error) => {
 
 // add file
 const addFileSuccess = (response) => {
+  $('.add-file-modal').modal('toggle')
 }
 const addFileFailure = (error) => {
 }
 
 // update file
 const updateFileSuccess = (response) => {
+  $('.file-update-modal').modal('toggle')
 }
 const updateFileFailure = (error) => {
 }
@@ -114,6 +116,7 @@ const openDeleteModal = function (event) {
 }
 
 const deleteFileSuccess = (response) => {
+  $('.file-delete-modal').modal('toggle')
 }
 const deleteFileFailure = (error) => {
 }
