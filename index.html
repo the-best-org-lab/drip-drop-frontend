@@ -232,26 +232,26 @@
                   </div>
 
 
-                    <div class="form-group">
-                      <label>File Name</label>
-                      <input type="text" name="file[name]" placeholder="File name" required="true" class="form-control name-add">
-                    </div>
+                  <div class="form-group">
+                    <label>File Name</label>
+                    <input type="text" name="file[name]" placeholder="File name" required="true" class="form-control name-add">
+                  </div>
 
-                    <label class="btn btn-default">
+                  <label class="btn btn-default">
 
-                      <input type="file" name="file[file]">
-                    </label>
+                    <input type="file" name="file[file]">
+                  </label>
 
-                    <div class="form-group">
-                      <label for="addTagNew">Add a Tag:</label>
-                      <select class="form-control" id="addTagNew">
+                  <div class="form-group">
+                    <label for="addTagNew">Add a Tag:</label>
+                    <select name="file[tag]" class="form-control" id="addTagNew">
 
-                        <option>New</option>
-                        <option>Pending Review</option>
-                        <option>Complete</option>
+                      <option>New</option>
+                      <option>Pending</option>
+                      <option>Complete</option>
 
-                      </select>
-                    </div>
+                    </select>
+                  </div>
 
                     <p class="errormsg"></p>
                     <input type="submit" class="btn btn-default button" name="submit" value="Add File">
@@ -285,13 +285,14 @@
 
                     <div class="form-group">
                       <label for="addTagUpdate">Add a Tag:</label>
-                      <select class="form-control" id="addTagUpdate">
+                      <select name="file[tag]" class="form-control" id="addTagNew">
 
                         <option>New</option>
-                        <option>Pending Review</option>
+                        <option>Pending</option>
                         <option>Complete</option>
 
                       </select>
+                    </div>
                     </div>
 
                     <p class="errormsg"></p>

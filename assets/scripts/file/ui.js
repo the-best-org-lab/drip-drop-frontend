@@ -39,13 +39,13 @@ const folderIndexFailure = (error) => {
 
 const openFolder = function () {
   store.folder = $(event.target).data('type')
-  console.log('store folder is ', store.folder)
   $('.folder-list-container').toggle('display')
   $('.files-list-container').toggle('display')
   fileApi.fileIndex()
     .then(fileIndexSuccess)
     .catch(fileIndexFailure)
 }
+
 // file index
 const filterByFolder = function (files) {
   return files.filter(function (file) {
@@ -59,27 +59,19 @@ const openFolderTable = function () {
 }
 
 const openAddModal = function (event) {
-  console.log('open add folder ', store.folder)
   $('.folder-add').val(store.folder)
 }
 
 const openEditModal = function (event) {
   store.fileName = $(event.target).parent().data('type')
   store.fileId = $(event.target).parent().data('id')
-  console.log($(event.target).parent())
-  console.log('fileName is ', store.fileName)
-  console.log('folder name is ', store.folder)
-  console.log('file id is ', store.fileId)
   $('.modal-folder-name').text(`Folder: ${store.folder}`)
   $('.modal-file-name').text(`File: ${store.fileName}`)
-
 }
 
 const fileIndexSuccess = (response) => {
   $('.file-list').empty()
-  console.log('response.files is ', response.files)
   const data = filterByFolder(response.files)
-  console.log('filtered is ', data)
   let showFilesHtml = filesTemplate({ files: data })
   $('.file-list').append(showFilesHtml)
   // $('.open-file-open').on('click', openFile)
@@ -88,7 +80,6 @@ const fileIndexSuccess = (response) => {
   $('.open-file-delete').on('click', openDeleteModal)
   $('.open-add-file').on('click', openAddModal)
   $('.files-table-title').text(store.folder)
-
 }
 
 const fileIndexFailure = (error) => {
@@ -97,6 +88,7 @@ const fileIndexFailure = (error) => {
 // add file
 const addFileSuccess = (response) => {
   $('.add-file-modal').modal('toggle')
+  reloadFileList()
 }
 const addFileFailure = (error) => {
 }
@@ -104,15 +96,14 @@ const addFileFailure = (error) => {
 // update file
 const updateFileSuccess = (response) => {
   $('.file-update-modal').modal('toggle')
+  reloadFileList()
 }
 const updateFileFailure = (error) => {
 }
 
 // delete file
 const openDeleteModal = function (event) {
-  console.log($(event.target).parent())
   store.fileId = $(event.target).parent().data('id')
-  console.log('delete store fileid ', store.fileId)
 }
 
 const deleteFileSuccess = (response) => {
