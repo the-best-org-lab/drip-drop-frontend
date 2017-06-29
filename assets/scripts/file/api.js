@@ -38,9 +38,7 @@ const updateFile = function (data) {
     headers: {
       Authorization: 'Token token=' + store.token
     },
-    data: `'{
-      'pendingReview': ${store.pendingReview},
-      'complete': ${store.complete} }'`
+    data
   })
 }
 
