@@ -6,14 +6,20 @@ const store = require('../store')
 const folderIndex = function () {
   return $.ajax({
     url: config.apiOrigin + '/files',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.token
+    }
   })
 }
 
 const fileIndex = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/files',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.token
+    }
   })
 }
 
@@ -38,9 +44,7 @@ const updateFile = function (data) {
     headers: {
       Authorization: 'Token token=' + store.token
     },
-    data: `'{
-      'pendingReview': ${store.pendingReview},
-      'complete': ${store.complete} }'`
+    data
   })
 }
 
