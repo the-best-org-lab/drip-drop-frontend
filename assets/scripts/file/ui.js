@@ -69,6 +69,16 @@ const openEditModal = function (event) {
   $('.modal-file-name').text(`File: ${store.fileName}`)
 }
 
+const highlightRows = function () {
+  $('.tag').each(function (i) {
+    if ($(this).text() === 'Complete') {
+      $(this).parent().css('background-color', '#69E181')
+    } else if ($(this).text() === 'Pending') {
+      $(this).parent().css('background-color', '#F3EE6C')
+    } else $(this).text('No Tag')
+  })
+}
+
 const fileIndexSuccess = (response) => {
   $('.file-list').empty()
   const data = filterByFolder(response.files)
@@ -80,6 +90,7 @@ const fileIndexSuccess = (response) => {
   $('.open-file-delete').on('click', openDeleteModal)
   $('.open-add-file').on('click', openAddModal)
   $('.files-table-title').text(store.folder)
+  highlightRows()
 }
 
 const fileIndexFailure = (error) => {

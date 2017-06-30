@@ -23,11 +23,7 @@
   <td class="col-xs-2" data-type="{{file.name}}" data-id="{{file.id}}">{{file.name}}</td>
   <td class="col-xs-2" data-type="{{file.createdAt}}">{{file.createdAt}}</td>
   <td class="col-xs-2" data-type="{{file.updatedAt}}">{{file.updatedAt}}</td>
-  {{#if file.pendingReview}}
-    <td class="col-xs-2" data-type="{{file.tag}}">{{file.tag}}</td>
-  {{else}}
-    <td></td>
-  {{/if}}
+  <td class="col-xs-2 tag" data-type="{{file.tag}}">{{file.tag}}</td>
 
 </tr>
 {{/each}}
