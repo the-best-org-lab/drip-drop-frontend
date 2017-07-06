@@ -16,16 +16,22 @@ https://trello.com/b/bRyHNpqY/wdi-3-git-rich-or-die-pryin
 
 
 ## Technologies Used:
-This is a single page application built with an Express API and Mongoose/MongoDB. All files are stored on Amazon Web Services (AWS) S3. The front end was built using javascript, bootstrap, handlebars, and ajax.
+This is a single page application built with an Express API and Mongoose/MongoDB. All files are stored on Amazon Web Services (AWS) S3. The front end was built using javascript, bootstrap, handlebars, JQuery, and ajax.
 
 Express, Mongoose/MongoDB, Node.js, AWS S3, Javascript, JQuery, Bootstrap, HTML5/CSS3, Handlebars, Ajax, fs, AWS, mime, path, dotenv, crypto
 
 # Approach
-Our team approached this project, first, by planning thoroughly. On our first day of the 4-day project work-time, we read the requirements thoroughly, whiteboarded a concept for the UI. We also created an ERD and abstracted the attibutes and and methods.
+
+*Team Roles*
+Geoffrey - Backend Lead
+Marcy - Frontend Lead
+Matt - Product Owner
+
+Our team approached this project, first, by planning thoroughly. On our first day of the 3-day project work-time, we read the requirements thoroughly, whiteboarded a concept for the UI. We also created an ERD and abstracted the attibutes and and methods.
 
 Once we felt we understood the project requirements, we created our basic user stories together and added them to a kanban-style Trello board. The Trello board was helpful to keep us on the same page and track our progress. We agreed on system for the board in which we were all empowered to add cards to the backlog and pick them off as we had time. Our "In-Progress" column showed anything we were currently working on and Trello allowed us to tag the cards with an owner.
 
-Then, we talked through and diagrammed a group process for Git/Github. In brief, each member of the team would create a feature branch for the specific card he/she was working on. When that card was ready to be merged, the team member would first rebase from the Github dev branch to ensure they had the latest shared code. Then, push the feature branch up to Github and create a pull request. That pull request was then reviewed by another team member and, if accepted, merged into the dev branch. When we reached a significant milestone in the project, we would merge dev into master and go through the deploy steps to update the production environment.
+Then, we talked through and diagrammed a group process for Git/Github and used best practices we learned and practiced during the course. In brief, each member of the team would create a feature branch for the specific card he/she was working on. When that card was ready to be merged, the team member would first rebase from the Github dev branch to ensure they had the latest shared code. Then, push the feature branch up to Github and create a pull request. That pull request was then reviewed by another team member and, if accepted, merged into the dev branch. When we reached a significant milestone in the project, we would merge dev into master and go through the deploy steps to update the production environment.
 
 Git/Github Process:
 1. Create a feature branch tied to a Trello card
@@ -111,7 +117,7 @@ As a logged in user, I would like to create a folder, so that I can upload files
 - Only logged in user can create a folder
 
 ### List Files
-As a user, I would like to see a list of files in a folder, so that I can open download them.
+As a logged in user, I would like to see a list of files in a folder, so that I can open download them.
 
 *Acceptance Criteria:*
 - All users can view, open, and download ALL files
@@ -130,31 +136,26 @@ As a logged in user, I would like to be able to upload a file, so that I can sto
 - Tags are optional
 
 ### Edit File
-As a user, I would like to be able to edit files so that I can change things I've previously uploaded.
+As a logged in user who owns the uploaded file, I would like to be able to edit files so that I can change things I've previously uploaded.
 
 *Acceptance Criteria:*
 - Only logged in users my edit files
 - Users my only edit files that they own
+- Must be owner of the file
 
 ### Delete File
-As a user, I would like to be able to delete a file that I uploaded, so that I can get rid of files that I don't need anymore.
+As a logged in user who owns the uploaded file, I would like to be able to delete a file that I uploaded, so that I can get rid of files that I don't need anymore.
 
 *Acceptance Criteria:*
 - Only the file owner can delete the file
 - Must be logged in to delete a file
 - Should be given asked to confirm the delete
 - Should be given confirmation that the delete succeeded
-
-### Show File
-As a user, I would like to be able to open files, so that I know what they contain.
-
-*Acceptance Criteria:*
-- ALL users can open files
-- Method and display for opening files is TBD
+- Must be owner of the file
 
 ### Download a File
-As a user, I would like to be able to download files so that I can have them stored locally.
+As a logged-in user, I would like to be able to download files so that I can have them stored locally.
 
 *Acceptance Criteria:*
-- ALL users should be able to download ALL files
+- ALL logged in users should be able to download ALL files
 - Downloaded file should be stored in user's machine default download folder
