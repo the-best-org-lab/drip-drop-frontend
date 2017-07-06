@@ -17,6 +17,12 @@ const reloadFileList = function () {
     .catch(fileIndexFailure)
 }
 
+const reloadFolderList = function () {
+  fileApi.fileIndex()
+    .then(folderIndexSuccess)
+    .catch(folderIndexFailure)
+}
+
 // folder index
 
 const filterByName = function (files) {
@@ -27,7 +33,7 @@ const filterByName = function (files) {
 }
 
 const folderIndexSuccess = (response) => {
-  // $('.folder-list').empty()
+  $('.folder-list').empty()
   const data = filterByName(response.files)
   let showFoldersHtml = foldersTemplate({ files: data })
   $('.folder-list').append(showFoldersHtml)
@@ -41,9 +47,7 @@ const openFolder = function () {
   store.folder = $(event.target).data('type')
   $('.folder-list-container').toggle('display')
   $('.files-list-container').toggle('display')
-  fileApi.fileIndex()
-    .then(fileIndexSuccess)
-    .catch(fileIndexFailure)
+  reloadFileList()
 }
 
 // file index
@@ -56,10 +60,13 @@ const filterByFolder = function (files) {
 const openFolderTable = function () {
   $('.folder-list-container').toggle('display')
   $('.files-list-container').toggle('display')
+  $('#add-file').trigger('reset')
 }
 
 const openAddModal = function (event) {
-  $('.folder-add').val(store.folder)
+  if ($('.files-list-container').is(':visible')) {
+    $('.folder-add').val(store.folder)
+  } else $('.folder-add').val('')
 }
 
 const openEditModal = function (event) {
@@ -99,7 +106,10 @@ const fileIndexFailure = (error) => {
 // add file
 const addFileSuccess = (response) => {
   $('.add-file-modal').modal('toggle')
-  reloadFileList()
+  $('#add-file').trigger('reset')
+  if ($('.folder-list-container').is(':visible')) {
+    reloadFolderList()
+  } else reloadFileList()
 }
 const addFileFailure = (error) => {
 }
