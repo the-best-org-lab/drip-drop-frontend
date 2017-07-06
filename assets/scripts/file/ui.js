@@ -82,7 +82,7 @@ const highlightRows = function () {
       $(this).parent().css('background-color', '#69E181')
     } else if ($(this).text() === 'Pending') {
       $(this).parent().css('background-color', '#F3EE6C')
-    } else $(this).text('No Tag')
+    } else $(this).text('New')
   })
 }
 
