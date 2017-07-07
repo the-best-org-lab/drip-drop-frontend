@@ -48,18 +48,18 @@
               <div class="modal-body">
                 <fieldset>
                   <label>Email
-                  <input type="text" name="[credentials][email]" value="">
+                  <input type="text" name="[credentials][email]" value="" required="true">
                   </label>
                   <label>Password
-                  <input type="password" name="[credentials][password]" value="">
+                  <input type="password" name="[credentials][password]" value="" required="true">
                 </label>
                   <label>Password Confirmation
-                  <input type="password" name="[credentials][password_confirmation]" value="">
+                  <input type="password" name="[credentials][password_confirmation]" value="" required="true">
                 </label>
                 </fieldset>
               </div>
               <div class="modal-footer">
-                <input class="btn btn-primary btn-block" type="submit" name="submit" value="Sign Up!">
+                <input class="btn btn-primary btn-block sign-up-button" type="submit" name="submit" value="Sign Up!">
               </div>
             </div>
           </div>
@@ -78,10 +78,10 @@
               <div class="modal-body">
                 <fieldset>
                   <label>Email
-                  <input type="text" name="[credentials][email]" value="">
+                  <input type="text" name="[credentials][email]" value="" required="true">
                   </label>
                   <label>Password
-                  <input type="password" name="[credentials][password]" value="">
+                  <input type="password" name="[credentials][password]" value="" required="true">
                 </label>
                 </fieldset>
               </div>
@@ -105,15 +105,15 @@
               <div class="modal-body">
                 <fieldset>
                   <label>Old Password
-                    <input type="password" name="[passwords][old]" value="">
+                    <input type="password" name="[passwords][old]" value="" required="true">
                     </label>
                   <label>New Password
-                    <input type="password" name="[passwords][new]" value="">
+                    <input type="password" name="[passwords][new]" value="" required="true">
                   </label>
                 </fieldset>
               </div>
               <div class="modal-footer">
-                <input class="btn btn-primary btn-block" type="submit" name="submit" value="Change Password!">
+                <input class="btn btn-primary btn-block change-password-button" type="submit" name="submit" value="Change Password!">
               </div>
             </div>
           </div>
@@ -232,18 +232,18 @@
 
                   <div id="below-modal-title" class="form-group">
                     <label>Folder</label>
-                    <input type="text" name="file[folder]" placeholder="Folder name" class="form-control folder-add">
+                    <input type="text" name="file[folder]" placeholder="Folder name" class="form-control folder-add" required="true">
                   </div>
 
 
                   <div class="form-group">
                     <label>File Name</label>
-                    <input type="text" name="file[name]" placeholder="File name" required="true" class="form-control name-add">
+                    <input type="text" name="file[name]" placeholder="File name" required="true" class="form-control name-add" required="true">
                   </div>
 
                   <div id="file-uploader">
                     <label class="btn btn-default">
-                    <input type="file" name="file[file]">
+                    <input type="file" name="file[file]" required="true">
                     </label>
                   </div>
 
