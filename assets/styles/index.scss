@@ -1,15 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-#change-password-btn {
-  display: none;
-}
-
-#sign-out-btn {
-  display: none;
-},
-
-
 .files-list-container {
   display: none;
 
@@ -20,7 +11,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 },
 
-#file-uploader {
+.file-uploader {
   padding-bottom: 10px;
 
 },
@@ -30,7 +21,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 },
 
-#below-modal-title {
+.below-modal-title {
   padding-top: 10px;
 
 }
