@@ -25,6 +25,10 @@ const signInSuccess = (data) => {
   $('#sign-in-modal').trigger('reset')
   fileEvents.onIndexFolder()
   $('.folder-list-container').toggle('display')
+  $('#sign-up-btn').toggle('display')
+  $('#sign-in-btn').toggle('display')
+  $('#sign-out-btn').toggle('display')
+  $('#change-password-btn').toggle('display')
 }
 
 const signInFailure = (error) => {
@@ -63,6 +67,10 @@ const signOutSuccess = () => {
   $('.files-list-container').hide()
   $('.file-list').empty()
   $('.folder-list').empty()
+  $('#sign-up-btn').toggle('display')
+  $('#sign-in-btn').toggle('display')
+  $('#sign-out-btn').toggle('display')
+  $('#change-password-btn').toggle('display')
 }
 
 const signOutFailure = (error) => {

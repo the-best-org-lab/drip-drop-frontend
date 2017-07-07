@@ -1,6 +1,14 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+#change-password-btn {
+  display: none;
+}
+
+#sign-out-btn {
+  display: none;
+}
+
 .files-list-container {
   display: none;
 
