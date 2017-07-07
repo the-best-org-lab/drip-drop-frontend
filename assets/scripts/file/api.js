@@ -25,7 +25,7 @@ const fileIndex = function (data) {
 
 const addFile = function (data) {
   return $.ajax({
-    url: 'http://localhost:4741/files',
+    url: config.apiOrigin + '/files',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.token
