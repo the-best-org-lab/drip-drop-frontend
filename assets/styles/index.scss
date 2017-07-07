@@ -45,7 +45,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 #brand-name {
-  color: #0085A1;
+  color: black;
   font-size: 36px;
   margin-top: 10px;
   padding-top: 15px;
@@ -56,41 +56,48 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 }
 
-.open-folder-table,
-.open-add-file,
-.sign-up-button,
-.sign-in-button,
-.change-password-button,{
-  background-color: white;
-  color: #0085A1;
-
-}
-
-.open-folder-table:hover,
-.open-folder-table:focus,
-.open-add-file:hover,
-.open-add-file:focus,
-.sign-up-button:hover,
-.sign-up-button:focus,
-.sign-in-button:hover,
-.sign-in-button:focus,
-.change-password-button:hover,
-.change-password-button:focus {
-  background-color: #0085A1;
-  color: white;
-
-}
-
-h4,
-label {
-  color: black;
-
-}
-
-.open-folder-table:hover,
-:focus {
-  color: #0085A1;
-}
+// .open-folder-table,
+// .open-add-file,
+// .sign-up-button,
+// .sign-in-button,
+// .change-password-button,{
+//   background-color: white;
+//   color: #337ab7;
+//
+// }
+//
+// .open-folder-table:hover,
+// .open-folder-table:focus,
+// .open-folder-table:active,
+// .open-add-file:hover,
+// .open-add-file:focus,
+// .open-add-file:active,
+// .sign-up-button:hover,
+// .sign-up-button:focus,
+// .sign-up-button:active,
+// .sign-in-button:hover,
+// .sign-in-button:focus,
+// .sign-in-button:target,
+// .change-password-button:hover,
+// .change-password-button:focus,
+// .change-password-button:active {
+//   background-color: #337ab7;
+//   color: white;
+//
+// }
+//
+// h4,
+// label,
+// input,
+// fieldset {
+//   color: black;
+//
+// }
+//
+// .open-folder-table:hover,
+// :focus {
+//   color: #337ab7;
+// }
 
 // bootstrap template css
 /*!
@@ -124,7 +131,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #0085A1;
+  color: #337ab7;
 }
 a img:hover,
 a img:focus {
@@ -189,7 +196,7 @@ hr.small {
   }
   .navbar-custom .nav li ul.dropdown-menu a:hover,
   .navbar-custom .nav li ul.dropdown-menu a:focus {
-    color: #0085A1;
+    color: #337ab7;
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -221,14 +228,14 @@ hr.small {
   }
   .navbar-custom.is-fixed .navbar-brand:hover,
   .navbar-custom.is-fixed .navbar-brand:focus {
-    color: #0085A1;
+    color: #337ab7;
   }
   .navbar-custom.is-fixed .nav li a {
     color: #333333;
   }
   .navbar-custom.is-fixed .nav li a:hover,
   .navbar-custom.is-fixed .nav li a:focus {
-    color: #0085A1;
+    color: #337ab7;
   }
   .navbar-custom.is-visible {
     /* if the user changes the scrolling direction, we show the header */
@@ -323,7 +330,7 @@ hr.small {
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-  color: #0085A1;
+  color: #337ab7;
 }
 .post-preview > a > .post-title {
   font-size: 30px;
@@ -347,7 +354,7 @@ hr.small {
 }
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus {
-  color: #0085A1;
+  color: #337ab7;
   text-decoration: underline;
 }
 @media only screen and (min-width: 768px) {
@@ -427,7 +434,7 @@ footer .copyright {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #0085A1;
+  color: #337ab7;
 }
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
@@ -447,8 +454,8 @@ form .row:first-child .floating-label-form-group {
 }
 .btn-default:hover,
 .btn-default:focus {
-  background-color: #0085A1;
-  border: 1px solid #0085A1;
+  background-color: #337ab7;
+  border: 1px solid #337ab7;
   color: white;
 }
 .pager {
@@ -468,8 +475,8 @@ form .row:first-child .floating-label-form-group {
 .pager li > a:hover,
 .pager li > a:focus {
   color: white;
-  background-color: #0085A1;
-  border: 1px solid #0085A1;
+  background-color: #337ab7;
+  border: 1px solid #337ab7;
 }
 .pager .disabled > a,
 .pager .disabled > a:hover,
@@ -482,12 +489,12 @@ form .row:first-child .floating-label-form-group {
 ::-moz-selection {
   color: white;
   text-shadow: none;
-  background: #0085A1;
+  background: #337ab7;
 }
 ::selection {
   color: white;
   text-shadow: none;
-  background: #0085A1;
+  background: #337ab7;
 }
 img::selection {
   color: white;
@@ -498,5 +505,5 @@ img::-moz-selection {
   background: transparent;
 }
 body {
-  -webkit-tap-highlight-color: #0085A1;
+  -webkit-tap-highlight-color: #337ab7;
 }
