@@ -53,6 +53,43 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   font-weight: 800;
   letter-spacing: 1px;
   border-radius: 0;
+
+}
+
+.open-folder-table,
+.open-add-file,
+.sign-up-button,
+.sign-in-button,
+.change-password-button,{
+  background-color: white;
+  color: #0085A1;
+
+}
+
+.open-folder-table:hover,
+.open-folder-table:focus,
+.open-add-file:hover,
+.open-add-file:focus,
+.sign-up-button:hover,
+.sign-up-button:focus,
+.sign-in-button:hover,
+.sign-in-button:focus,
+.change-password-button:hover,
+.change-password-button:focus {
+  background-color: #0085A1;
+  color: white;
+
+}
+
+h4,
+label {
+  color: black;
+
+}
+
+.open-folder-table:hover,
+:focus {
+  color: #0085A1;
 }
 
 // bootstrap template css
