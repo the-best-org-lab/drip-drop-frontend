@@ -41,6 +41,7 @@ const folderIndexSuccess = (response) => {
 }
 
 const folderIndexFailure = (error) => {
+  displayError('Index Folder', error)
 }
 
 const openFolder = function () {
@@ -101,6 +102,7 @@ const fileIndexSuccess = (response) => {
 }
 
 const fileIndexFailure = (error) => {
+  displayError('File Index', error)
 }
 
 // add file
@@ -112,6 +114,9 @@ const addFileSuccess = (response) => {
   } else reloadFileList()
 }
 const addFileFailure = (error) => {
+  displayError('Add File', error)
+  $('.add-file-modal').modal('toggle')
+  $('#add-file').trigger('reset')
 }
 
 // update file
@@ -120,6 +125,8 @@ const updateFileSuccess = (response) => {
   reloadFileList()
 }
 const updateFileFailure = (error) => {
+  displayError('Update File', error)
+  $('.file-update-modal').modal('toggle')
 }
 
 // delete file
@@ -132,6 +139,14 @@ const deleteFileSuccess = (response) => {
   reloadFileList()
 }
 const deleteFileFailure = (error) => {
+  displayError('Delete File', error)
+  $('.file-delete-modal').modal('toggle')
+}
+
+const displayError = (methodNameText, error) => {
+  $('div#statusBar').text(methodNameText + ' failed. Status returned by the server: ' + error.status + ' ' + error.statusText)
+  $('div#statusBar').show(3000)
+  $('div#statusBar').hide(5000)
 }
 
 module.exports = {
