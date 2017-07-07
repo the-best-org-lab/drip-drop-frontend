@@ -29,6 +29,7 @@ const signInSuccess = (data) => {
   $('#sign-in-btn').toggle('display')
   $('#sign-out-btn').toggle('display')
   $('#change-password-btn').toggle('display')
+  $('header').toggle('display')
 }
 
 const signInFailure = (error) => {
@@ -71,6 +72,7 @@ const signOutSuccess = () => {
   $('#sign-in-btn').toggle('display')
   $('#sign-out-btn').toggle('display')
   $('#change-password-btn').toggle('display')
+  $('header').toggle('display')
 }
 
 const signOutFailure = (error) => {
