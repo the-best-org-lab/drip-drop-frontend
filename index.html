@@ -228,7 +228,7 @@
                     <h3 class="modal-title">Add a File</h3>
                   </div>
 
-                  <div class="form-group below-modal-title">
+                  <div id="below-modal-title" class="form-group">
                     <label>Folder</label>
                     <input type="text" name="file[folder]" placeholder="Folder name" class="form-control folder-add">
                   </div>
@@ -239,7 +239,7 @@
                     <input type="text" name="file[name]" placeholder="File name" required="true" class="form-control name-add">
                   </div>
 
-                  <div class="file-uploader">
+                  <div id="file-uploader">
                     <label class="btn btn-default">
                     <input type="file" name="file[file]">
                     </label>
@@ -260,7 +260,7 @@
                     <p class="errormsg"></p>
                   </div>
 
-                  <div class="modal-buttons">
+                  <div class="modal-footer">
                     <input type="submit" class="btn btn-default button" name="submit" value="Add File">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                   </div>
@@ -287,7 +287,7 @@
                   <h3 class="modal-title">Update a File</h3>
                 </div>
 
-                <p class="modal-folder-name form-group below-modal-title">Folder:</p>
+                <p id="below-modal-title" class="modal-folder-name form-group">Folder:</p>
 
                 <p class="modal-file-name form-group">File:</p>
 
@@ -306,7 +306,7 @@
                   <p class="errormsg"></p>
                 </div>
 
-                <div class="modal-buttons">
+                <div class="modal-footer">
 
                   <input type="submit" class="btn btn-default button" name="submit" value="Update File">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -338,7 +338,7 @@
                   </div>
                   <p class="errormsg"></p>
 
-                  <div class="modal-buttons">
+                  <div class="modal-footer">
                     <button id="delete-file" type="button" class="btn btn-default button">Delete File</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                   </div>
