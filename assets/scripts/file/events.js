@@ -26,9 +26,9 @@ const onIndexFile = function () {
 const onAddFile = function (event) {
   event.preventDefault()
   const data = new FormData(event.target)
-  for (let pair of data.entries()) {
-    console.log(pair[0], pair[1], pair[2])
-  }
+  // for (let pair of data.entries()) {
+  //   console.log(pair[0], pair[1], pair[2])
+  // }
   fileApi.addFile(data)
     .then(fileUi.addFileSuccess)
     .catch(fileUi.addFileFailure)
@@ -37,7 +37,6 @@ const onAddFile = function (event) {
 const onUpdateFile = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('update file data is ', data)
   fileApi.updateFile(data)
     .then(fileUi.updateFileSuccess)
     .catch(fileUi.updateFileFailure)
