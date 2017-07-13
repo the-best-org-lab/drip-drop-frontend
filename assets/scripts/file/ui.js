@@ -129,7 +129,7 @@ const updateFileSuccess = (response) => {
   reloadFileList()
 }
 const updateFileFailure = (error) => {
-  displayError('Update File', error)
+  displayError('Please check that you are the owner of this file. Update file', error)
   $('.file-update-modal').modal('toggle')
 }
 
@@ -143,13 +143,13 @@ const deleteFileSuccess = (response) => {
   reloadFileList()
 }
 const deleteFileFailure = (error) => {
-  displayError('Delete File', error)
+  displayError('Please check that you are the owner of this file. Delete File', error)
   $('.file-delete-modal').modal('toggle')
 }
 
 const displayError = (methodNameText, error) => {
   $('div#statusBar').text(methodNameText + ' failed. Status returned by the server: ' + error.status + ' ' + error.statusText)
-  $('div#statusBar').show(3000)
+  $('div#statusBar').show(4000)
   $('div#statusBar').hide(5000)
 }
 
