@@ -73,8 +73,12 @@ const openAddModal = function (event) {
 const openEditModal = function (event) {
   store.fileName = $(event.target).parent().data('type')
   store.fileId = $(event.target).parent().data('id')
+  store.fileTag = $(event.target).parent().data('tag')
   $('.modal-folder-name').text(`Folder: ${store.folder}`)
   $('.modal-file-name').text(`File: ${store.fileName}`)
+
+  // To select a value in the dropdown, it the html element must be prepended the id.  $('select#addTagNew') works; $('#addTagNew') does not
+  $('select#addTagNew').val(store.fileTag)
 }
 
 const highlightRows = function () {
