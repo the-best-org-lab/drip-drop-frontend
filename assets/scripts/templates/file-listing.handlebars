@@ -1,14 +1,14 @@
 {{#each files as |file|}}
 <tr>
 
-  <td class="col-xs-2" align="center" data-id="{{file.id}}" data-type="{{file.name}}">
+  <td class="col-xs-2" align="center" data-id="{{file.id}}" data-type="{{file.name}}" data-tag="{{file.tag}}">
 
 
     <a href="{{file.url}}" class="btn btn-default open-file-download" data-id="{{file.id}}">
       <em class="fa fa-download"></em>
     </a>
 
-    <a class="btn btn-default open-file-edit" data-id="{{file.id}}" data-toggle="modal" data-target=".file-update-modal" data-type="{{file.name}}">
+    <a class="btn btn-default open-file-edit" data-id="{{file.id}}" data-toggle="modal" data-target=".file-update-modal" data-type="{{file.name}}" data-tag="{{file.tag}}">
       <em class="fa fa-pencil"></em>
     </a>
 

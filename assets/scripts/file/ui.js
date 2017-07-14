@@ -73,8 +73,12 @@ const openAddModal = function (event) {
 const openEditModal = function (event) {
   store.fileName = $(event.target).parent().data('type')
   store.fileId = $(event.target).parent().data('id')
+  store.fileTag = $(event.target).parent().data('tag')
   $('.modal-folder-name').text(`Folder: ${store.folder}`)
   $('.modal-file-name').text(`File: ${store.fileName}`)
+
+  // To select a value in the dropdown, it the html element must be prepended the id.  $('select#addTagNew') works; $('#addTagNew') does not
+  $('select#addTagNew').val(store.fileTag)
 }
 
 const highlightRows = function () {
@@ -125,7 +129,7 @@ const updateFileSuccess = (response) => {
   reloadFileList()
 }
 const updateFileFailure = (error) => {
-  displayError('Update File', error)
+  displayError('Please check that you are the owner of this file. Update file', error)
   $('.file-update-modal').modal('toggle')
 }
 
@@ -139,13 +143,13 @@ const deleteFileSuccess = (response) => {
   reloadFileList()
 }
 const deleteFileFailure = (error) => {
-  displayError('Delete File', error)
+  displayError('Please check that you are the owner of this file. Delete File', error)
   $('.file-delete-modal').modal('toggle')
 }
 
 const displayError = (methodNameText, error) => {
   $('div#statusBar').text(methodNameText + ' failed. Status returned by the server: ' + error.status + ' ' + error.statusText)
-  $('div#statusBar').show(3000)
+  $('div#statusBar').show(4000)
   $('div#statusBar').hide(5000)
 }
 
